@@ -60,13 +60,14 @@ class ClockWorkCard extends HTMLElement {
             month : 'long'
         });
 
-        //Build List of Other Timezones
-        //
-        var otherclocks = `
-            <div class = "other_clocks">
-            `;
-        var i;
+        var otherclocks = '';
         if (_other_timezones) {
+            //Build List of Other Timezones
+            //
+            otherclocks = `
+                <div class = "other_clocks">
+                `;
+            var i;
             var j = _other_timezones.length; //TODO: Recommend max 3.
             for (i= 0; i < j; i++) {
                 //Format other timezones.
@@ -84,10 +85,10 @@ class ClockWorkCard extends HTMLElement {
                 `;
                 //console.log(_tztime);
             };
+            otherclocks = otherclocks + `
+                </div>
+                `;
         }
-        otherclocks = otherclocks + `
-            </div>
-            `;
         /*console.log(otherclocks);*/
 
         // Build Current Local Time
