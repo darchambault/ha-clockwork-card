@@ -66,23 +66,25 @@ class ClockWorkCard extends HTMLElement {
             <div class = "other_clocks">
             `;
         var i;
-        var j = _other_timezones.length; //TODO: Recommend max 3.
-        for (i= 0; i < j; i++) {
-            //Format other timezones.
-            var _tztime = _date_time.toLocaleTimeString(_locale, {
-                hour: 'numeric',
-                minute: 'numeric',
-                timeZone: _other_timezones[i],
-                weekday: 'short'
-            }); 
-            
-            // List other Timezones.
-            otherclocks = otherclocks + `
-                <div class="tz_locale">${_other_timezones[i]} </div> 
-                <div class="otime"> ${_tztime} </div>
-            `;
-            //console.log(_tztime);
-        };
+        if (_other_timezones) {
+            var j = _other_timezones.length; //TODO: Recommend max 3.
+            for (i= 0; i < j; i++) {
+                //Format other timezones.
+                var _tztime = _date_time.toLocaleTimeString(_locale, {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    timeZone: _other_timezones[i],
+                    weekday: 'short'
+                }); 
+
+                // List other Timezones.
+                otherclocks = otherclocks + `
+                    <div class="tz_locale">${_other_timezones[i]} </div> 
+                    <div class="otime"> ${_tztime} </div>
+                `;
+                //console.log(_tztime);
+            };
+        }
         otherclocks = otherclocks + `
             </div>
             `;
