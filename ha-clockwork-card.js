@@ -117,6 +117,7 @@ class ClockWorkCard extends HTMLElement {
         if (root.lastChild) root.removeChild(root.lastChild);
 
         this.config = config;
+        const _align = config.align ? config.align : 'left';
 
         const card = document.createElement('ha-card');
         const content = document.createElement('div');
@@ -164,6 +165,7 @@ class ClockWorkCard extends HTMLElement {
                 letter-spacing: var(--paper-font-headline_-_letter-spacing);
                 line-height: 1em;
                 text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);
+                text-align: ${_align};
             }
             .date {
 
@@ -174,6 +176,7 @@ class ClockWorkCard extends HTMLElement {
                 letter-spacing: var(--paper-font-headline_-_letter-spacing);
                 line-height: var(--paper-font-headline_-_line-height);
                 text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);
+                text-align: ${_align};
             }          
         `;
      
